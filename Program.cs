@@ -7,10 +7,22 @@ namespace SocialSecurityNumber_2
     {
         static void Main(string[] args)
         {
-            // Ask for input
-            Console.WriteLine("Please input your Social security number YYMMDD-XXXX");
+            string socialSecurityNumber;
 
-            string socialSecurityNumber = Console.ReadLine();
+            // Input
+            if (args.Length > 0)
+            {
+                // if input from terminal is already done
+                Console.WriteLine($"You provided: {args[0]}");
+                socialSecurityNumber = args[0];
+            }
+            else
+
+            {   // Ask for input
+                Console.WriteLine("Please input your Social security number YYMMDD-XXXX");
+                socialSecurityNumber = Console.ReadLine();
+            }
+
 
             // Gender
             string genderNumberString = socialSecurityNumber.Substring(socialSecurityNumber.Length - 2, 1);
@@ -41,7 +53,7 @@ namespace SocialSecurityNumber_2
             }
 
 
-            // Presentation
+            // Result presentation
             Console.WriteLine($"This is a: {gender}, with age: {age}");
         }
     }
